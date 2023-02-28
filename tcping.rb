@@ -6,8 +6,13 @@ class Tcping < Formula
   version "v#{HOMEBREW_CLI_VERSION}"
   
   on_macos do
-    url "https://github.com/pouriyajamshidi/tcping/releases/download/v#{HOMEBREW_CLI_VERSION}/tcping_MacOS.tar.gz"
-    sha256 "8355c5b09c92b1336f4c15ab30d5c51faac947b7fd56713a85f1572bf8a4e95a"
+    if Hardware::CPU.arm?
+      url "https://github.com/pouriyajamshidi/tcping/releases/download/v#{HOMEBREW_CLI_VERSION}/tcping_MacOS_ARM.tar.gz"
+      sha256 "df4ede899764cd3df4bc76d7e1e4b862eb0fb3f1647dda6deed1ecb00fbe8b4c"
+    else
+      url "https://github.com/pouriyajamshidi/tcping/releases/download/v#{HOMEBREW_CLI_VERSION}/tcping_MacOS.tar.gz"
+      sha256 "8355c5b09c92b1336f4c15ab30d5c51faac947b7fd56713a85f1572bf8a4e95a"
+    end
 
     def install
       cd buildpath do
