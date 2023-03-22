@@ -1,4 +1,4 @@
-HOMEBREW_CLI_VERSION='1.19.0'
+HOMEBREW_CLI_VERSION='1.19.1'
 class Tcping < Formula
   desc "Ping TCP ports. Inspired by Linux's ping utility. Written in Go"
   homepage "https://github.com/pouriyajamshidi/tcping"
