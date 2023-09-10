@@ -1,4 +1,4 @@
-HOMEBREW_CLI_VERSION='2.0.0'
+HOMEBREW_CLI_VERSION='2.4.0'
 class Tcping < Formula
   desc "Ping TCP ports. Inspired by Linux's ping utility. Written in Go"
   homepage "https://github.com/pouriyajamshidi/tcping"
@@ -8,10 +8,10 @@ class Tcping < Formula
   on_macos do
     if Hardware::CPU.arm?
       url "https://github.com/pouriyajamshidi/tcping/releases/download/v#{HOMEBREW_CLI_VERSION}/tcping_MacOS_ARM.tar.gz"
-      sha256 "f24b8db769e389782185edbc5d8510f803695123704ba235e7a5b2293a64a57b"
+      sha256 "ca99224925d9ec77cc5e157314ec3ee454e33ade9867e6b6d0925cea2568072f"
     else
       url "https://github.com/pouriyajamshidi/tcping/releases/download/v#{HOMEBREW_CLI_VERSION}/tcping_MacOS.tar.gz"
-      sha256 "04328fe1480cb1c8759cec6c5329bd34e29fcdf15116051063613404e1a311f5"
+      sha256 "6d87e841a5862f415049cd6ee9f4c793f6a7d6a45d888a09f0ef7fa9f18b7943"
     end
 
     def install
@@ -23,7 +23,7 @@ class Tcping < Formula
 
   on_linux do
     url "https://github.com/pouriyajamshidi/tcping/releases/download/v#{HOMEBREW_CLI_VERSION}/tcping_Linux.tar.gz"
-    sha256 "0ac4051647c09314c029ac0ef8089699879d75686f0c437cb4d70cdc5e1098f7"
+    sha256 "4fe818728f9ca8a8b4c9e5db66d415270f45672884a07cccd765db2b74c45130"
   
     def install
       bin.install "tcping"
