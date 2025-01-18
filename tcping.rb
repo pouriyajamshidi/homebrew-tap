@@ -7,11 +7,11 @@ class Tcping < Formula
   
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/pouriyajamshidi/tcping/releases/download/v#{HOMEBREW_CLI_VERSION}/tcping_MacOS_ARM.tar.gz"
-      sha256 "71ea98256cabf5b6dfd28f53e8d05a013ade07de4128844358791ec3537722d2"
+      url "https://github.com/pouriyajamshidi/tcping/releases/download/v#{HOMEBREW_CLI_VERSION}/tcping-darwin-arm64-static.tar.gz"
+      sha256 "4d7e93a222b24cc4309cccb5dacbcfa96217e457ec3b13f73bc414948a17acdd"
     else
-      url "https://github.com/pouriyajamshidi/tcping/releases/download/v#{HOMEBREW_CLI_VERSION}/tcping_MacOS.tar.gz"
-      sha256 "3be78c490b228a41386724d2abb2a95c6313443a28ec90bbb856d22003bf72a9"
+      url "https://github.com/pouriyajamshidi/tcping/releases/download/v#{HOMEBREW_CLI_VERSION}/tcping-darwin-amd64-static.tar.gz"
+      sha256 "d95d45dca7875a5c5f6a2ec8f78019693c5d3dd419a20e386c147a27b671e5af"
     end
 
     def install
@@ -22,8 +22,13 @@ class Tcping < Formula
   end
 
   on_linux do
-    url "https://github.com/pouriyajamshidi/tcping/releases/download/v#{HOMEBREW_CLI_VERSION}/tcping_Linux.tar.gz"
-    sha256 "6f46820e6e683707c20769a34f470b02dbc8d31e6610f5d55f2491248dff8e00"
+    if Hardware::CPU.arm?
+      url "https://github.com/pouriyajamshidi/tcping/releases/download/v#{HOMEBREW_CLI_VERSION}/tcping-linux-arm64-static.tar.gz"
+      sha256 "6128242275b99fe5311828b7e3b18aec5c188119fdbf952b491e900717bc36ba"
+    else
+      url "https://github.com/pouriyajamshidi/tcping/releases/download/v#{HOMEBREW_CLI_VERSION}/tcping-linux-amd64-static.tar.gz"
+      sha256 "d5677c55039fb9f42ce54d00ed9bc8c6a682577f4cb51c6434782ec1b420c93a"
+    end
   
     def install
       bin.install "tcping"
